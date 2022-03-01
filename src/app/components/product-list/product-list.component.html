@@ -1,0 +1,17 @@
+Product's quantity: {{shoppingList.length}}
+<br>
+Total: ${{ total }}
+<br>
+Fecha: {{ today | date: 'shortDate'}}
+<br>
+Uppercase: {{ string | uppercase}}
+<br>
+Reverse: {{ string | reverse}}
+<br><br>
+<div class="container-grid">
+  <app-product
+    [product]="product"
+    *ngFor="let product of products"
+    (addedProduct)="onAddShoppingCart($event)"
+  ></app-product>
+</div>

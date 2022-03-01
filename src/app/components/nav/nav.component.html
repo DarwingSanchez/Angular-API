@@ -1,0 +1,61 @@
+<div class="show-mobile">
+  <div>
+    <button (click)="toggleMenu() ">
+      <img src="./assets/svg/icon_menu.svg" alt="menu">
+    </button>
+    <a href="">
+      <img src="./assets/svg/logo_yard_sale.svg" alt="logo">
+    </a>
+    <button (click)="toggleShoppinMenu()">
+      <p>{{ quantity }}</p>
+      <img  src="./assets/svg/icon_shopping_cart.svg" alt="logo">
+    </button>
+  </div>
+  <div class="side-menu" [class.active]="activeMenu">
+    <ul>
+      <li><a href="">All</a></li>
+      <li><a href="">Clothes</a></li>
+      <li><a href="">Electronics</a></li>
+    </ul>
+    <button (click)="toggleMenu()" >Close</button>
+  </div>
+  <div class="shoppingMenu" [class.active]="activeShoppinMenu">
+    <div *ngFor="let product of shoppingList">
+      <div class="childProductContainer">
+        <div class="childProductImg">
+          <img [src]="product.image" alt="">
+        </div>
+        <div class="chileProductInfo">
+          <div><h2>{{product.title}}</h2></div>
+          <p>{{product.price}}</p>
+        </div>
+      </div>
+      <hr class="lineShoppingMenu" width="95%">
+    </div>
+    Total: {{ totalPrice }}
+    <button (click)="toggleShoppinMenu()">Close</button>
+  </div>
+</div>
+<div class="hide-mobile">
+  <div>
+    <nav>
+      <a class="logo" href="">
+        <img src="./assets/svg/logo_yard_sale.svg" alt="logo">
+      </a>
+      <ul>
+        <li><a href="">All</a></li>
+        <li><a href="">Clothes</a></li>
+        <li><a href="">Electronics</a></li>
+      </ul>
+    </nav>
+    <div class="info">
+      <div class="account">nicolas@nicolas.com</div>
+      <div>
+        <button>
+          <span class="counter">{{ quantity }}</span>
+          <img src="./assets/svg/icon_shopping_cart.svg" alt="logo">
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
